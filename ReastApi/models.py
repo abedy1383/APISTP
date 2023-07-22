@@ -29,11 +29,10 @@ class Api(models.Model):
 
 class Sentiment(models.Model):
     text = models.TextField()
-    code = models.IntegerField()
+    sentiment = models.CharField(max_length=20)
+    code = models.CharField(max_length=40)
     api = models.ForeignKey(Api , on_delete=models.CASCADE)
-    user = models.ForeignKey(User , on_delete=models.CASCADE)
     
-
     def __str__(self) -> str:
         return self.code
 

@@ -1,23 +1,20 @@
-from django.shortcuts import render
-from rest_framework.views import APIView  
-from rest_framework.response import Response  
-from django.core.handlers.wsgi import WSGIRequest
-from pydantic import BaseModel
-from typing import Union , Any 
-
-from .models import User , Api , HashUserApi 
+import hashlib
 from time import time 
 from json import dumps
 from fastapi import status
 from random import randint
-from cryptography.fernet import Fernet
-
-from .forms import CreateUserForm , CreateApiForm , CreateSentiment
-from threading import Thread 
-
 from .Sentiment import main 
+from threading import Thread 
+from pydantic import BaseModel
+from typing import Union , Any 
+from cryptography.fernet import Fernet
+from rest_framework.views import APIView  
+from rest_framework.response import Response  
+from django.core.handlers.wsgi import WSGIRequest
+from .models import User , Api , HashUserApi , Sentiment as Model_Sentiment 
+from .forms import CreateUserForm , CreateApiForm , CreateSentiment , PredictSentimentText
 
-main.RunTester()
+Nural_network = main.RunTester()
 
 class Base:
     class BaseResponseJson(BaseModel):
@@ -35,8 +32,11 @@ class Base:
 
     class BaseApiSentiment(BaseModel):
         text : str 
-        hash_login : str 
-        hash_api : str 
+        api : str 
+    
+    class BaseApiPedict(BaseModel):
+        code : str 
+        api : str 
 
 class CreateHashPassword:
     def __init__(self, data: dict) -> None:
@@ -58,7 +58,7 @@ class CreateHashPassword:
         [self._join(_token , _index) for _index , _token in enumerate(Fernet(self._key).encrypt(self._data).decode())] 
 
         return self._encrypted_password
-    
+
 class UserCreate(APIView):
     def multiThread(self , username : str , Ip : str , UserAgent : str  ):
         Hash = CreateHashPassword({"username" : username , "Ip" : Ip , "UserAgent" : UserAgent}).run()
@@ -205,6 +205,19 @@ class Sentiment(APIView):
             _filter.update(use = _filter[0].use + 1)
         return Thread(target=run).start()
     
+    def MultiCreated(self , text , api ):
+        code = hashlib.sha256(f"{time()}".encode('UTF-8')).hexdigest()
+        def run():
+            Model_Sentiment(
+                text = text , 
+                sentiment = Nural_network.predict_one(text), 
+                code = code ,
+                api = api, 
+            ).save()
+
+        Thread(target=run).start()
+        return code 
+
     def get(self, request : WSGIRequest , *args, **kwargs):
         return Response(
             Base.BaseResponseJson(
@@ -220,48 +233,109 @@ class Sentiment(APIView):
         claned = CreateSentiment(request.POST)
 
         if claned.is_valid():
-            data = Base.BaseApiSentiment(**claned.cleaned_data)
-
-            if len(tokenlogin:= HashUserApi.objects.filter(Hash = data.hash_login)) > 0 and len(tokenapi:= Api.objects.filter(api = data.hash_api)) > 0 :
-                if tokenapi[0].user_content.username == tokenlogin[0].user.username and tokenapi[0].user_login == tokenlogin[0]:
-                    self.MultiSaveUse(tokenapi)
-                    from pathlib import Path
-
-                    BASE_DIR = Path(__file__).resolve()
-                    return Response(
-                        Base.BaseResponseJson(
-                            massage="ok sentiment text persion" , 
-                            data= {
-                                "username": tokenapi[0].user_content.username , 
-                                "Sentiment" : str(BASE_DIR) , 
-                                "timestamp" : time() , 
-                            } , 
-                            status_code=status.HTTP_200_OK
-                        ).dict()
-                        , status=status.HTTP_200_OK) 
+            analized = Base.BaseApiSentiment(**claned.cleaned_data)
+            if len(tokenapi:= Api.objects.filter(api = analized.api)) > 0 :
+                self.MultiSaveUse(tokenapi)
                 
                 return Response(
                     Base.BaseResponseJson(
-                        massage="You do not have access rights" , 
+                        massage="ok sentiment text persion" , 
+                        data= {
+                            "username": tokenapi[0].user_content.username , 
+                            "code" : self.MultiCreated(text=analized.text , api=tokenapi[0]), 
+                            "timestamp" : time() , 
+                        } , 
+                        status_code=status.HTTP_200_OK
+                    ).dict()
+                    , status=status.HTTP_200_OK)    
+            return Response(
+                Base.BaseResponseJson(
+                    massage="You do not have access rights" , 
+                    data= {
+                        "errors" : [
+                            "Block Ip or not Api"
+                        ]
+                    } , 
+                    status_code=status.HTTP_405_METHOD_NOT_ALLOWED
+                ).dict()
+                , status=status.HTTP_200_OK) 
+        return Response(
+            Base.BaseResponseJson(
+                massage="not create account user" , 
+                data= {
+                    "errors" : claned.errors
+                } , 
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE
+            ).dict()
+            , status=status.HTTP_200_OK) 
+
+class Predict(APIView):
+    def MultiDelet(self , _filter):
+        def run():
+            _filter.delete()
+        return Thread(target=run).start()
+
+    def get(self, request : WSGIRequest , *args, **kwargs): 
+        return Response(
+            Base.BaseResponseJson(
+                massage="This route is only for testing with the post method" , 
+                data= {
+                    "data" : list(PredictSentimentText.base_fields)
+                } , 
+                status_code=status.HTTP_204_NO_CONTENT
+            ).dict()
+            , status=status.HTTP_200_OK)  
+
+    def post(self, request : WSGIRequest , *args, **kwargs):
+        claned = PredictSentimentText(request.POST) 
+
+        if claned.is_valid():
+            data = Base.BaseApiPedict(**claned.cleaned_data)
+            if len(_api := Api.objects.filter(api = data.api)) > 0 :
+                if len(_data := Model_Sentiment.objects.filter(code = data.code , api = _api[0])) > 0 :
+                    try:
+                        return Response(
+                            Base.BaseResponseJson(
+                                massage="ok sentiment text persion" , 
+                                data= {
+                                    "username": _data[0].api.user_content.username , 
+                                    "Sentiment" : _data[0].sentiment, 
+                                    "timestamp" : time() , 
+                                } , 
+                                status_code=status.HTTP_200_OK
+                            ).dict()
+                            , status=status.HTTP_200_OK) 
+                    finally:
+                        self.MultiDelet(_data)
+                        
+                return Response(
+                    Base.BaseResponseJson(
+                        massage="not code" , 
                         data= {
                             "errors" : [
-                                "Block Ip"
+                                "not find data"
                             ]
                         } , 
                         status_code=status.HTTP_405_METHOD_NOT_ALLOWED
                     ).dict()
                     , status=status.HTTP_200_OK) 
-            
             return Response(
                 Base.BaseResponseJson(
-                    massage="No such hash exists" , 
+                    massage="You do not have access rights" , 
                     data= {
                         "errors" : [
-                            "Not Found Hash Login"
+                            "Block Ip or not Api"
                         ]
                     } , 
-                    status_code=status.HTTP_203_NON_AUTHORITATIVE_INFORMATION
+                    status_code=status.HTTP_405_METHOD_NOT_ALLOWED
                 ).dict()
-                , status=status.HTTP_200_OK)  
-        
-    
+                , status=status.HTTP_200_OK) 
+        return Response(
+            Base.BaseResponseJson(
+                massage="not create account user" , 
+                data= {
+                    "errors" : claned.errors
+                } , 
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE
+            ).dict()
+            , status=status.HTTP_200_OK) 

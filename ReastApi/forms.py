@@ -11,6 +11,8 @@ class CreateApiForm(forms.Form):
 
 class CreateSentiment(forms.Form):
     text = forms.CharField(max_length=1000)
-    hash_api = forms.CharField(max_length=1000)
-    hash_login = forms.CharField(max_length=1000)
+    api = forms.CharField(max_length=1000)
  
+class PredictSentimentText(forms.Form):
+    api = forms.CharField(max_length=1000)
+    code = forms.CharField() 

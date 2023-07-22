@@ -1,14 +1,15 @@
 import pandas as pd
 from typing import Union
-import re , hazm , torch 
+import re ,torch 
 from numpy import ndarray
+from json import loads 
 from cleantext import clean
 from transformers import BertTokenizer 
 from torch.utils.data import DataLoader , Dataset
+from pathlib import Path
 
 class Setting:
-    addres_CSV = "./Datasets/Csv/DataFrame.csv"
-    addres_json = "./Datasets/json/data_negative.json"
+    addres_json = Path(__file__).resolve().parent / "json/data_negative.json"
     encode = 'HooshvareLab/bert-fa-base-uncased'
     random_seed = 9999
     batch_size = 64 
@@ -43,7 +44,7 @@ class ClanedText:
                 u"\u2068"
                 u"\u2067"
                 "]+", flags=re.UNICODE)
-        self._nomalize = hazm.Normalizer()
+        # self._nomalize = hazm.Normalizer()
         self._clanedtext = re.compile('<.*?>')
         self._clanedzero = re.compile('[!@#$%^&*()_+=./<>{}-]')
 
@@ -52,7 +53,7 @@ class ClanedText:
                         re.sub("\s+", " ", 
                             re.sub("#", "", 
                                 self._complet.sub(r'', 
-                                    self._nomalize.normalize(
+                                    # self._nomalize.normalize(
                                         re.sub( self._clanedtext, '', clean(
                                             self._clanedzero.sub("" , value).strip(),
                                             fix_unicode=True,
@@ -74,7 +75,7 @@ class ClanedText:
                                             replace_with_currency_symbol="",
                                             )
                                         )
-                                    )                        
+                                    # )                        
                                 )                      
                             )      
                         )
@@ -130,7 +131,6 @@ class Datasets(Dataset):
             inputs['label'] = torch.tensor(self.targets[item] , dtype=torch.long )
 
         return inputs
-
 
 class DataLoder: 
     def __init__(self , encoding : str = Setting.encode) -> None:

@@ -8,7 +8,7 @@ from torch.backends import cudnn
 from torch import cuda , manual_seed 
 from .Datasets.analized import DataLoder 
 import pandas as pd
-from .Datasets.analized import ClanedText
+from .Datasets.analized import ClanedText 
 from .Model.Model.BiLstm import SentimentModel 
 from json import loads
 from pathlib import Path
@@ -68,10 +68,17 @@ class RunTester:
                 _driver : str = Setting._driver
                 ) -> None:
 
-                self.dictory = name_folder 
-                self.addres_import = addres_import 
-                self._encoding = encoding
-                self._driver = _driver
+                (
+                    self.dictory , 
+                    self.addres_import , 
+                    self._encoding , 
+                    self._driver 
+                ) = (
+                    name_folder , 
+                    addres_import , 
+                    encoding , 
+                    _driver
+                )
 
                 # run function 
                 self.run()
@@ -96,8 +103,7 @@ class RunTester:
 
             def _checklossModel(self):
                 if self._checker_addres(f"{self.addres_import}/{self.dictory}/model" , "model.pt"):
-                    print(f"{self.addres_import}/{self.dictory}/model")
-                    self.model.load_state_dict(torch.load(f"{self.addres_import}/{self.dictory}/model/model.pt" , map_location=self._driver))
+                    return self.model.load_state_dict(torch.load(f"{self.addres_import}/{self.dictory}/model/model.pt" , map_location=self._driver))
                 else:
                     Download.run(
                         id=(_json := loads(open(f"{self.addres_import}/{self.dictory}/model/model.json", 'r').read()))["file_id"],
@@ -143,9 +149,15 @@ class RunTester:
                 _driver = _driver
             )
 
-        self._driver = _driver
-        self._clanedtext = ClanedText()
-        self._loader = DataLoder()
+        (
+            self._driver , 
+            self._clanedtext , 
+            self._loader
+        ) = (
+            _driver , 
+            ClanedText() , 
+            DataLoder()
+        )
 
     def _modelCommands(self , comments , controller : Any):
 
@@ -159,15 +171,15 @@ class RunTester:
 
                 BaseData = RunTester.Model.BaseTokenizer(**data)
 
-                outputs = controller.model(
-                    input_ids=BaseData.text.to(self._driver),
-                    attention_mask=BaseData.attention_mask.to(self._driver),
-                    token_type_ids=BaseData.token_type_ids.to(self._driver)
+                predictions.extend(
+                    torch.max(
+                        controller.model(
+                            input_ids=BaseData.text.to(self._driver),
+                            attention_mask=BaseData.attention_mask.to(self._driver),
+                            token_type_ids=BaseData.token_type_ids.to(self._driver)
+                        )
+                    , dim=1)[1]
                 )
-
-                _, preds = torch.max(outputs, dim=1)
-
-                predictions.extend(preds)
 
         return torch.stack(predictions).cpu().detach().numpy()
     
@@ -178,11 +190,13 @@ class RunTester:
                 return RunTester.Base.UnNegative()
             return RunTester.Base.Negative()
         return RunTester.Base.Positive()
-
+    
     def predict(self , comments : list[str]):
 
         return pd.DataFrame(data={
             "Texts": (_claned := [self._clanedtext.predict(_) for _ in comments]),
             "Comments" :  [str(self._Clustering(_)) for _ in _claned]
         })
-
+    
+    def predict_one(self , text):
+        return str(self._Clustering(text))

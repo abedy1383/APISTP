@@ -53,3 +53,120 @@
 2023-07-11 22:03:38,596 DEBUG root saved Model 
 2023-07-11 22:03:40,811 DEBUG root saved setting model to file
 2023-07-11 22:03:40,811 DEBUG root Loss  : 0.08210721699934867 , Perment : 1.0
+2023-07-22 20:43:04,048 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:43:04,110 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-22 20:43:07,718 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:43:08,361 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:43:58,559 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:43:59,127 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:43:59,703 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:47:23,922 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:47:33,677 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:47:48,915 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
+2023-07-22 20:48:04,740 WARNING huggingface_hub.utils._http 'HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt (Caused by ProxyError('Cannot connect to proxy.', TimeoutError('_ssl.c:990: The handshake operation timed out')))' thrown while requesting HEAD https://huggingface.co/HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt
+2023-07-22 20:49:43,024 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:49:43,324 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:49:43,637 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:49:49,542 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 20:49:49,542 DEBUG filelock Attempting to acquire lock 2375575911296 on C:\Users\HadafRayane/.cache\huggingface\hub\models--HooshvareLab--bert-fa-base-uncased\blobs\3deb0f238175ae2d12c890039f4a054e057b5c83.lock
+2023-07-22 20:49:49,542 DEBUG filelock Lock 2375575911296 acquired on C:\Users\HadafRayane/.cache\huggingface\hub\models--HooshvareLab--bert-fa-base-uncased\blobs\3deb0f238175ae2d12c890039f4a054e057b5c83.lock
+2023-07-22 20:49:50,119 DEBUG urllib3.connectionpool https://huggingface.co:443 "GET /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 1198122
+2023-07-22 20:49:57,741 DEBUG filelock Attempting to release lock 2375575911296 on C:\Users\HadafRayane/.cache\huggingface\hub\models--HooshvareLab--bert-fa-base-uncased\blobs\3deb0f238175ae2d12c890039f4a054e057b5c83.lock
+2023-07-22 20:49:57,741 DEBUG filelock Lock 2375575911296 released on C:\Users\HadafRayane/.cache\huggingface\hub\models--HooshvareLab--bert-fa-base-uncased\blobs\3deb0f238175ae2d12c890039f4a054e057b5c83.lock
+2023-07-22 20:49:58,440 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/added_tokens.json HTTP/1.1" 404 0
+2023-07-22 20:49:58,764 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/special_tokens_map.json HTTP/1.1" 404 0
+2023-07-22 20:49:59,074 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/tokenizer_config.json HTTP/1.1" 404 0
+2023-07-22 20:51:39,784 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:51:40,142 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:51:40,442 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:51:48,183 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 20:51:57,523 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:51:57,822 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:51:58,135 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:52:08,726 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 20:53:13,974 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:53:14,376 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:53:14,716 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:53:21,299 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 20:53:30,404 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:53:30,766 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:53:31,062 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:53:42,826 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 20:53:48,916 INFO django.utils.autoreload C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\main.py changed, reloading.
+2023-07-22 20:55:00,241 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:55:00,823 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:55:02,244 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:55:07,744 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 20:58:06,081 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 20:58:16,102 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
+2023-07-22 20:58:18,479 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 20:58:24,298 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 21:47:03,934 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 21:47:04,263 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 21:47:04,576 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 21:47:17,439 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 21:47:18,155 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 21:47:18,470 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:21:39,828 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 23:21:40,128 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:21:40,441 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:21:48,348 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 23:26:11,318 INFO django.utils.autoreload C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\main.py changed, reloading.
+2023-07-22 23:27:18,681 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 23:27:19,022 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:27:19,317 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:27:25,613 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 23:28:31,552 ERROR django.request Internal Server Error: /api/show/sentiment/api/
+Traceback (most recent call last):
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "c:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\views.py", line 302, in post
+    "Sentiment" : _data[0].sentiment,
+  File "C:\Users\HadafRayane\anaconda3\lib\site-packages\django\db\models\query.py", line 446, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+2023-07-22 23:31:27,597 INFO django.utils.autoreload C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\views.py changed, reloading.
+2023-07-22 23:32:16,474 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 23:32:16,817 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:32:17,130 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:32:23,246 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 23:35:18,791 INFO django.utils.autoreload C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\views.py changed, reloading.
+2023-07-22 23:36:34,135 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 23:36:34,445 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:36:34,734 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:36:42,421 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-22 23:55:50,397 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-22 23:55:51,057 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:55:51,370 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-22 23:55:57,157 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-23 00:00:29,484 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-23 00:00:29,795 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 00:00:30,099 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 00:00:35,902 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-23 00:16:10,783 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-23 00:16:10,798 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-07-23 00:16:10,890 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
+2023-07-23 00:16:16,408 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
+2023-07-23 00:16:47,444 INFO django.utils.autoreload C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Datasets\analized.py changed, reloading.
+2023-07-23 00:17:47,403 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-23 00:17:47,412 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-07-23 00:17:47,498 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
+2023-07-23 00:17:53,347 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
+2023-07-23 00:20:58,248 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-23 00:20:58,255 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-07-23 00:20:58,263 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
+2023-07-23 00:21:03,928 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
