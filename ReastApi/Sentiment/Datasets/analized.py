@@ -1,10 +1,10 @@
 import pandas as pd
 from typing import Union
-import re , hazm 
+import re , hazm , torch 
 from numpy import ndarray
 from cleantext import clean
 from transformers import BertTokenizer 
-from torch.utils.data import  DataLoader
+from torch.utils.data import DataLoader , Dataset
 
 class Setting:
     addres_CSV = "./Datasets/Csv/DataFrame.csv"
@@ -79,7 +79,59 @@ class ClanedText:
                             )      
                         )
                     ).rstrip()
+
+class Datasets(Dataset):
+    def __init__(self, 
+            tokenizer, 
+            comments, 
+            targets=None,
+            max_len=128
+        ) -> None :
+        '''
+        label_id = <int>
+        '''
+        (
+            self.comments , 
+            self.targets , 
+            self.has_target , 
+            self.tokenizer , 
+            self.max_len , 
+        ) = (
+            comments , 
+            targets , 
+            isinstance(targets, list) or isinstance(targets, ndarray) , 
+            tokenizer , 
+            max_len , 
+        )
         
+    def __len__(self):
+        return len(self.comments)
+
+    def __getitem__(self, item):
+        
+        encoding = self.tokenizer.encode_plus(
+            str(self.comments[item]) ,
+            add_special_tokens=True ,
+            truncation=True ,
+            max_length=self.max_len ,
+            return_token_type_ids=True ,
+            padding='max_length' ,
+            return_attention_mask=True ,
+            return_tensors='pt' 
+        )
+
+        inputs = dict(
+            text= encoding['input_ids'].flatten(),
+            attention_mask= encoding['attention_mask'].flatten(),
+            token_type_ids= encoding['token_type_ids'].flatten()
+        )
+
+        if self.has_target:
+            inputs['label'] = torch.tensor(self.targets[item] , dtype=torch.long )
+
+        return inputs
+
+
 class DataLoder: 
     def __init__(self , encoding : str = Setting.encode) -> None:
         self._tokenizer = BertTokenizer.from_pretrained(encoding)

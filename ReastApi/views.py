@@ -17,6 +17,8 @@ from threading import Thread
 
 from .Sentiment import main 
 
+main.RunTester()
+
 class Base:
     class BaseResponseJson(BaseModel):
         massage : Union[str , None , list] = None 

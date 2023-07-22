@@ -1,6 +1,6 @@
 from torch import nn 
 from transformers import BertConfig
-from .Model.Model.BiLinear import BertModel 
+from ReastApi.Sentiment.Model.Model.BiLinear import BertModel 
 
 class Setting:
     encoding : str = 'HooshvareLab/bert-fa-base-uncased'

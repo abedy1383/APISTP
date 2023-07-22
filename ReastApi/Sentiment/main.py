@@ -11,8 +11,9 @@ import pandas as pd
 from .Datasets.analized import ClanedText
 from .Model.Model.BiLstm import SentimentModel 
 from json import loads
-from google_drive_downloader import GoogleDriveDownloader 
 from pathlib import Path
+import requests
+from bs4 import BeautifulSoup 
 
 class Setting:
     _addresEn = "HooshvareLab/bert-fa-base-uncased"
@@ -20,6 +21,15 @@ class Setting:
     _addres_folder_import = Path(__file__).resolve().parent / "Model/Saved"
     _addres_commants = "negative"
     _addres_swear = "negativeplas"
+
+class Download:
+    def run(id, destination):
+        session = requests.Session()
+
+        response = requests.post(BeautifulSoup(session.get("https://docs.google.com/uc?export=download", params = { 'id' : id }, stream = True).content, "html.parser").find(id="download-form").get("action"), stream=True)
+
+        with open(destination, "wb") as handle:
+          handle.write(response.content)
 
 class RunTester:
     class Base:
@@ -86,11 +96,12 @@ class RunTester:
 
             def _checklossModel(self):
                 if self._checker_addres(f"{self.addres_import}/{self.dictory}/model" , "model.pt"):
+                    print(f"{self.addres_import}/{self.dictory}/model")
                     self.model.load_state_dict(torch.load(f"{self.addres_import}/{self.dictory}/model/model.pt" , map_location=self._driver))
                 else:
-                    GoogleDriveDownloader.download_file_from_google_drive(
-                        file_id=(_json := loads(open(f"{self.addres_import}/{self.dictory}/model/model.json", 'r').read()))["file_id"],
-                        dest_path= f"{self.addres_import}/{self.dictory}/model/{_json['dest_path']}" 
+                    Download.run(
+                        id=(_json := loads(open(f"{self.addres_import}/{self.dictory}/model/model.json", 'r').read()))["file_id"],
+                        destination= f"{self.addres_import}/{self.dictory}/model/{_json['dest_path']}" 
                     )
                     return self._checklossModel()
 
