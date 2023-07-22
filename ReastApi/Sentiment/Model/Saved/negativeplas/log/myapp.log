@@ -1,0 +1,55 @@
+2023-07-11 22:03:23,473 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-11 22:03:23,524 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-11 22:03:25,494 DEBUG root Create Model Sentiment 
+2023-07-11 22:03:25,497 DEBUG root  create loss func / optimizer / scheduler 
+2023-07-11 22:03:28,174 DEBUG root optim Model / Loss Func 
+2023-07-11 22:03:28,174 DEBUG root START TRAINING MODEL
+2023-07-11 22:03:28,174 DEBUG root start Train CEll 
+2023-07-11 22:03:28,214 DEBUG root Train step step : 0 code : start
+2023-07-11 22:03:28,727 DEBUG root Train step step : 1 code : output
+2023-07-11 22:03:29,784 DEBUG root Train step step : 1 code : backward
+2023-07-11 22:03:29,785 DEBUG root check perment 
+2023-07-11 22:03:29,823 DEBUG root Train step step : 1 code : step
+2023-07-11 22:03:29,875 DEBUG root Train step step : 1 code : start
+2023-07-11 22:03:29,890 DEBUG root Train step step : 2 code : output
+2023-07-11 22:03:30,948 DEBUG root Train step step : 2 code : backward
+2023-07-11 22:03:30,948 DEBUG root check perment 
+2023-07-11 22:03:30,978 DEBUG root Train step step : 2 code : step
+2023-07-11 22:03:31,072 DEBUG root Train step step : 2 code : start
+2023-07-11 22:03:31,094 DEBUG root Train step step : 3 code : output
+2023-07-11 22:03:32,143 DEBUG root Train step step : 3 code : backward
+2023-07-11 22:03:32,144 DEBUG root check perment 
+2023-07-11 22:03:32,173 DEBUG root Train step step : 3 code : step
+2023-07-11 22:03:32,262 DEBUG root Train step step : 3 code : start
+2023-07-11 22:03:32,286 DEBUG root Train step step : 4 code : output
+2023-07-11 22:03:33,337 DEBUG root Train step step : 4 code : backward
+2023-07-11 22:03:33,338 DEBUG root check perment 
+2023-07-11 22:03:33,367 DEBUG root Train step step : 4 code : step
+2023-07-11 22:03:33,432 DEBUG root Train step step : 4 code : start
+2023-07-11 22:03:33,453 DEBUG root Train step step : 5 code : output
+2023-07-11 22:03:34,496 DEBUG root Train step step : 5 code : backward
+2023-07-11 22:03:34,496 DEBUG root check perment 
+2023-07-11 22:03:34,526 DEBUG root Train step step : 5 code : step
+2023-07-11 22:03:34,616 DEBUG root Train step step : 5 code : start
+2023-07-11 22:03:34,641 DEBUG root Train step step : 6 code : output
+2023-07-11 22:03:35,693 DEBUG root Train step step : 6 code : backward
+2023-07-11 22:03:35,693 DEBUG root check perment 
+2023-07-11 22:03:35,723 DEBUG root Train step step : 6 code : step
+2023-07-11 22:03:35,801 DEBUG root Train step step : 6 code : start
+2023-07-11 22:03:35,825 DEBUG root Train step step : 7 code : output
+2023-07-11 22:03:36,872 DEBUG root Train step step : 7 code : backward
+2023-07-11 22:03:36,872 DEBUG root check perment 
+2023-07-11 22:03:36,901 DEBUG root Train step step : 7 code : step
+2023-07-11 22:03:36,946 DEBUG root Train step step : 7 code : start
+2023-07-11 22:03:36,962 DEBUG root Train step step : 8 code : output
+2023-07-11 22:03:38,019 DEBUG root Train step step : 8 code : backward
+2023-07-11 22:03:38,020 DEBUG root check perment 
+2023-07-11 22:03:38,049 DEBUG root Train step step : 8 code : step
+2023-07-11 22:03:38,071 DEBUG root Train step step : 8 code : start
+2023-07-11 22:03:38,087 DEBUG root Train step step : 9 code : output
+2023-07-11 22:03:38,566 DEBUG root Train step step : 9 code : backward
+2023-07-11 22:03:38,566 DEBUG root check perment 
+2023-07-11 22:03:38,596 DEBUG root Train step step : 9 code : step
+2023-07-11 22:03:38,596 DEBUG root saved Model 
+2023-07-11 22:03:40,811 DEBUG root saved setting model to file
+2023-07-11 22:03:40,811 DEBUG root Loss  : 0.08210721699934867 , Perment : 1.0
