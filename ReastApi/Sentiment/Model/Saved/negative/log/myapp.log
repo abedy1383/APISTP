@@ -57530,3 +57530,72 @@
 2023-07-23 00:20:40,244 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
 2023-07-23 00:20:40,260 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
 2023-07-23 00:20:52,292 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
+2023-07-23 00:32:43,019 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-23 00:32:43,031 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-23 00:32:43,696 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 00:32:44,124 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 08:32:29,683 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-23 08:32:29,691 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-23 08:32:36,091 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 08:32:38,083 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 08:37:25,994 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-23 08:37:26,002 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-23 08:37:28,843 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 08:37:29,472 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 00:08:05,213 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 00:08:05,229 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 00:08:05,260 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
+2023-07-26 00:25:10,724 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 00:25:10,734 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 00:25:10,768 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
+2023-07-26 00:42:13,775 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 00:42:13,791 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 00:42:13,806 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
+2023-07-26 09:03:10,180 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 09:03:10,188 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 09:03:13,198 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:03:13,745 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:22:52,844 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 09:22:52,860 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 09:22:54,346 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:22:55,346 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:29:58,082 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 09:29:58,089 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 09:30:11,877 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:30:12,918 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:34:05,779 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 09:34:05,779 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 09:34:06,761 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:34:07,329 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 12:43:31,286 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 12:43:31,301 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 12:43:32,181 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 12:43:32,462 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:37:42,089 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 13:37:42,105 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 13:37:43,769 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:37:44,106 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:50:46,443 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 13:50:46,459 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 13:51:11,281 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:51:11,687 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:55:25,988 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-26 13:55:26,004 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-26 13:55:36,998 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:55:37,340 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 10:30:34,894 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-30 10:30:34,910 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-30 10:30:35,842 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 10:30:36,080 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 13:11:19,331 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-07-30 13:11:19,344 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-07-30 13:11:20,105 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 13:11:20,353 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 17:19:38,425 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-08-08 17:19:38,441 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-08-08 17:19:40,449 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 17:19:41,734 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 18:33:47,131 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-08-08 18:33:47,142 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-08-08 18:33:47,769 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 18:33:48,031 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0

@@ -170,3 +170,91 @@ IndexError: list index out of range
 2023-07-23 00:20:58,255 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
 2023-07-23 00:20:58,263 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
 2023-07-23 00:21:03,928 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
+2023-07-23 00:32:50,558 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-23 00:32:50,897 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 00:32:51,256 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 00:32:57,338 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-23 08:32:45,768 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-23 08:32:46,483 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
+2023-07-23 08:32:53,227 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-07-23 08:32:54,544 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-23 08:37:40,148 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-23 08:37:40,897 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 08:37:41,525 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-23 08:37:54,547 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-23 08:38:10,148 WARNING django.request Not Found: /favicon.ico
+2023-07-26 00:08:12,066 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 00:08:12,066 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-07-26 00:08:12,082 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
+2023-07-26 00:08:17,449 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
+2023-07-26 00:08:37,528 WARNING django.request Not Found: /favicon.ico
+2023-07-26 00:21:01,838 DEBUG MARKDOWN Successfully imported extension module "markdown.extensions.toc".
+2023-07-26 00:21:01,838 DEBUG MARKDOWN Successfully loaded extension "markdown.extensions.toc.TocExtension".
+2023-07-26 00:21:14,410 DEBUG MARKDOWN Successfully imported extension module "markdown.extensions.toc".
+2023-07-26 00:21:14,410 DEBUG MARKDOWN Successfully loaded extension "markdown.extensions.toc.TocExtension".
+2023-07-26 00:21:17,782 DEBUG MARKDOWN Successfully imported extension module "markdown.extensions.toc".
+2023-07-26 00:21:17,784 DEBUG MARKDOWN Successfully loaded extension "markdown.extensions.toc.TocExtension".
+2023-07-26 00:21:37,568 DEBUG MARKDOWN Successfully imported extension module "markdown.extensions.toc".
+2023-07-26 00:21:37,568 DEBUG MARKDOWN Successfully loaded extension "markdown.extensions.toc.TocExtension".
+2023-07-26 00:25:18,890 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 00:25:18,895 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-07-26 00:25:18,907 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
+2023-07-26 00:25:26,091 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
+2023-07-26 00:42:20,874 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 00:42:20,874 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-07-26 00:42:20,874 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
+2023-07-26 00:42:26,684 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
+2023-07-26 00:42:49,182 DEBUG MARKDOWN Successfully imported extension module "markdown.extensions.toc".
+2023-07-26 00:42:49,182 DEBUG MARKDOWN Successfully loaded extension "markdown.extensions.toc.TocExtension".
+2023-07-26 09:03:21,179 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 09:03:21,669 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:03:22,072 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:03:27,970 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-26 09:03:57,903 WARNING django.request Not Found: /favicon.ico
+2023-07-26 09:23:04,175 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 09:23:04,647 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:23:05,144 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:23:11,999 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-26 09:30:18,386 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 09:30:19,815 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:30:20,260 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:30:25,746 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-26 09:34:14,105 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 09:34:14,415 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:34:14,759 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 09:34:21,262 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-26 12:43:45,165 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 12:43:45,491 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 12:43:45,752 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 12:43:54,727 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-26 12:51:33,633 WARNING django.request Not Found: /favicon.ico
+2023-07-26 13:37:52,859 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 13:37:57,107 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:37:57,368 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:38:05,130 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-26 13:51:18,658 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 13:51:18,906 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:51:19,190 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:51:26,693 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-26 13:55:44,818 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-26 13:55:45,140 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:55:45,409 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-26 13:55:51,947 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-30 10:30:46,150 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-30 10:30:46,394 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 10:30:46,639 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 10:30:55,281 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-07-30 13:11:32,457 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-07-30 13:11:32,691 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 13:11:32,938 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-07-30 13:11:43,912 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-08-08 17:19:51,603 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-08-08 17:19:53,251 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 17:19:53,736 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 17:20:04,711 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-08-08 18:33:58,081 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-08-08 18:33:58,331 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 18:33:58,581 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-08-08 18:34:07,104 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
+2023-08-08 18:36:30,572 WARNING django.request Not Found: /login/user/api/
+2023-08-08 18:38:03,169 WARNING django.request Not Found: /favicon.ico

@@ -6,6 +6,7 @@ import numpy as np
 from torch import nn
 import tensorflow as tf
 import torch.utils.checkpoint
+from transformers import logging
 from dataclasses import dataclass
 from transformers.utils import ModelOutput
 from transformers.activations import ACT2FN
@@ -17,6 +18,8 @@ from transformers.pytorch_utils import (
     find_pruneable_heads_and_indices, 
     prune_linear_layer 
 ) 
+# off logger
+logging.set_verbosity_error()
 
 def load_tf_weights_in_bert(model, config, tf_checkpoint_path):
     

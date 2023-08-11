@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User , Api , HashUserApi , Sentiment
+from .models import User , Api , HashUserApi , Sentiment 
 
 admin.site.register(User)
 admin.site.register(Api)

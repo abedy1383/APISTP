@@ -1,22 +1,56 @@
-import hashlib
-from time import time 
-from json import dumps
-from fastapi import status
-from random import randint
-from .Sentiment import main 
-from threading import Thread 
-from pydantic import BaseModel
-from typing import Union , Any 
-from cryptography.fernet import Fernet
-from rest_framework.views import APIView  
-from rest_framework.response import Response  
-from django.core.handlers.wsgi import WSGIRequest
-from .models import User , Api , HashUserApi , Sentiment as Model_Sentiment 
-from .forms import CreateUserForm , CreateApiForm , CreateSentiment , PredictSentimentText
+# Foreign library
+import hashlib # create hash sha256 
+from time import time # create time stamp 
+from json import dumps # Convert the dictionary file to JSON
+from fastapi import status # Using code status 
+from random import randint # create random data intiger 
+from threading import Thread  # run multi Thread 
+from pydantic import BaseModel # Base data dict 
+from typing import Union , Any  # Data type
+from cryptography.fernet import Fernet # Encryption of user keys 
+from rest_framework.views import APIView   # create api viewer 
+from rest_framework.response import Response   # response data in clint 
+from django.core.handlers.wsgi import WSGIRequest # Base requets send clint 
+from django.shortcuts import render 
 
-Nural_network = main.RunTester()
+# Internal library
+# from .Sentiment import main # nuralnetwork 
+from .models import (
+    User , 
+    Api , 
+    HashUserApi , 
+    Sentiment as Model_Sentiment
+) # models
+ 
+from .forms import (
+    CreateUserForm , 
+    CreateApiForm , 
+    CreateSentiment , 
+    PredictSentimentText , 
+    FormUpdateHash , 
+    FormLoginUser , 
+    FormRicaweryDataUser , 
+    FormChangeDataUser , 
+    FormChangeEmailUser , 
+    FormChangeUsernameUser
+) # forms 
 
+# run NuralNetwork
+# Nural_network = main.RunTester()
+Nural_network = None
+
+def views(request):
+    return render(request , 'ReastApi/home/index.html')
+
+# Base Data Requests -> Form -> Base
 class Base:
+    '''  
+    ## run code 
+    >>> Base(**forms.Form(requests.POST).cleand_data) 
+    
+    ### output code 
+    -> Base Data
+    '''
     class BaseResponseJson(BaseModel):
         massage : Union[str , None , list] = None 
         data : Union[dict[str , Any] , None] = None 
@@ -33,12 +67,27 @@ class Base:
     class BaseApiSentiment(BaseModel):
         text : str 
         api : str 
-    
+
     class BaseApiPedict(BaseModel):
         code : str 
         api : str 
 
+    class BaseUpdateHash(BaseModel):
+        hash_login : str 
+
+    class BaseLoginUser(BaseModel):
+        username : str 
+        password : str 
+
+# create hash data 
 class CreateHashPassword:
+    ''' 
+    ### run code :
+    >>> CreateHashPassword({"username " :  "abolfazl"}).run()
+
+    ### output code :
+    
+       '''
     def __init__(self, data: dict) -> None:
         (
             self._data , 
@@ -59,6 +108,7 @@ class CreateHashPassword:
 
         return self._encrypted_password
 
+# viewer create user 
 class UserCreate(APIView):
     def multiThread(self , username : str , Ip : str , UserAgent : str  ):
         Hash = CreateHashPassword({"username" : username , "Ip" : Ip , "UserAgent" : UserAgent}).run()
@@ -121,6 +171,7 @@ class UserCreate(APIView):
                 ).dict()
                 , status=status.HTTP_200_OK)  
 
+# viewer create Api 
 class ApiCreate(APIView):
     def MultiThread(self , user_content , user_login ):
         api = CreateHashPassword({"time":time() , "Ip" : user_login.Ip }).run() 
@@ -198,7 +249,8 @@ class ApiCreate(APIView):
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE
             ).dict()
             , status=status.HTTP_200_OK)  
-        
+
+# viewer sentiment text prsion 
 class Sentiment(APIView):
     def MultiSaveUse(self , _filter):
         def run():
@@ -269,6 +321,7 @@ class Sentiment(APIView):
             ).dict()
             , status=status.HTTP_200_OK) 
 
+# viewer show data Sentiment 
 class Predict(APIView):
     def MultiDelet(self , _filter):
         def run():
@@ -339,3 +392,352 @@ class Predict(APIView):
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE
             ).dict()
             , status=status.HTTP_200_OK) 
+
+# viewer update hash login  
+class UpdateHashLogin(APIView):
+    def MultiUpdate(self , filter : list[HashUserApi] , username : str , Ip : str , UserAgent  : str ):
+        Hash = CreateHashPassword({"username" : username , "Ip" : Ip , "UserAgent" : UserAgent}).run()
+        def run():
+            print(filter.update(Hash = Hash))
+
+        Thread(target=run).start()
+        return Hash 
+
+    def get(self, request : WSGIRequest , *args, **kwargs):
+        return Response(
+            Base.BaseResponseJson(
+                massage="This route is only for testing with the post method" , 
+                data= {
+                    "data" : list(FormUpdateHash.base_fields)
+                } , 
+                status_code=status.HTTP_204_NO_CONTENT
+            ).dict()
+            , status=status.HTTP_200_OK)  
+
+    def post(self, request : WSGIRequest , *args, **kwargs):
+        data = FormUpdateHash(request.POST)
+
+        if data.is_valid():
+            claned = Base.BaseUpdateHash(**data.cleaned_data)
+
+            if len(_filter := HashUserApi.objects.filter(Hash = claned.hash_login , Ip = request.get_host())) > 0:
+                return Response(
+                    Base.BaseResponseJson(
+                        massage="ok update Hash" , 
+                        data= {
+                            "username" : _filter[0].user.username , 
+                            "hash_login" : self.MultiUpdate(
+                                filter= _filter, 
+                                username= _filter[0].user.username, 
+                                Ip= _filter[0].Ip, 
+                                UserAgent= _filter[0].UserAgent,  
+                            ) , 
+                            "timestamp" : time() , 
+                        } , 
+                        status_code=status.HTTP_201_CREATED
+                    ).dict()
+                    , status=status.HTTP_200_OK) 
+            return Response(
+                Base.BaseResponseJson(
+                    massage="You do not have access rights" , 
+                    data= {
+                        "errors" : [
+                            "Block Ip or not Api"
+                        ]
+                    } , 
+                    status_code=status.HTTP_405_METHOD_NOT_ALLOWED
+                ).dict()
+                , status=status.HTTP_200_OK) 
+        return Response(
+            Base.BaseResponseJson(
+                massage="not update Hash" , 
+                data= {
+                    "errors" : data.errors
+                } , 
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE
+            ).dict()
+            , status=status.HTTP_200_OK) 
+
+# viewer login user  
+class LoginUser(APIView):
+    def multiThread(self , user : User , username : str , Ip : str , UserAgent : str  ):
+        Hash = CreateHashPassword({"username" : username , "Ip" : Ip , "UserAgent" : UserAgent}).run()
+
+        def run():
+            HashUserApi(
+                user = user , 
+                Hash = Hash , 
+                Ip = Ip,
+                UserAgent = UserAgent , 
+            ).save()
+        Thread(target=run).start()
+        return Hash
+        
+    def get(self, request : WSGIRequest , *args, **kwargs):
+        return Response(
+            Base.BaseResponseJson(
+                massage="This route is only for testing with the post method" , 
+                data= {
+                    "data" : list(FormLoginUser.base_fields)
+                } , 
+                status_code=status.HTTP_204_NO_CONTENT
+            ).dict()
+            , status=status.HTTP_200_OK)  
+
+    def post(self, request : WSGIRequest , *args, **kwargs):
+        data = FormLoginUser(request.POST)
+
+        if data.is_valid():
+            claned = Base.BaseLoginUser(**data.cleaned_data)
+
+            if len(_filter := User.objects.filter(username = claned.username , password = claned.password )) > 0:
+                return Response(
+                    Base.BaseResponseJson(
+                        massage="ok login user " , 
+                        data= {
+                            "username" : _filter[0].username , 
+                            "hash_login" : self.multiThread(
+                                user = _filter[0], 
+                                username= _filter[0].username, 
+                                Ip= request.get_host(), 
+                                UserAgent=  request.headers.get('User-Agent') ,  
+                            ) , 
+                            "timestamp" : time() , 
+                        } , 
+                        status_code=status.HTTP_201_CREATED
+                    ).dict()
+                    , status=status.HTTP_200_OK) 
+            return Response(
+                Base.BaseResponseJson(
+                    massage="You do not have access rights" , 
+                    data= {
+                        "errors" : [
+                            "Block Ip or not Api"
+                        ]
+                    } , 
+                    status_code=status.HTTP_405_METHOD_NOT_ALLOWED
+                ).dict()
+                , status=status.HTTP_200_OK) 
+        return Response(
+            Base.BaseResponseJson(
+                massage="not update Hash" , 
+                data= {
+                    "errors" : data.errors
+                } , 
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE
+            ).dict()
+            , status=status.HTTP_200_OK) 
+
+# viwer register 
+class RegisterUserAcount:
+    class Base:
+        class BaseRicaweryDataUser(BaseModel):
+            username : str  = None
+            password : str  = None
+            email    : str  = None
+        
+            def permission(self):
+                self.username = None if self.username is None or self.username == '' else self.username
+                self.password = None if self.password is None or self.password == '' else self.password
+                self.email = None if self.email is None or self.email == '' else self.email
+
+        class BaseChangeDataUser(BaseModel):
+            hash_login : str        
+            password : str 
+
+        class BaseChangeEmailUser(BaseModel):
+            hash_login : str        
+            email : str 
+
+        class BaseChangeUsernameUser(BaseModel):
+            hash_login : str        
+            username : str 
+
+    class Serialize:
+        pass  
+
+    class ChangePasswordUser(APIView):
+        def MultiUpdate(self , filter : list[HashUserApi] , password : str ):
+            def run(): 
+                if (_Data := User.objects.filter(username = filter[0].user.username))[0].password != password:
+                    _Data.update(password = password)
+
+            Thread(target=run).start()
+
+            return filter[0].user.username 
+
+        def get(self, request : WSGIRequest , *args, **kwargs):
+            return Response(
+                Base.BaseResponseJson(
+                    massage="This route is only for testing with the post method" , 
+                    data= {
+                        "data" : list(FormChangeDataUser.base_fields)
+                    } , 
+                    status_code=status.HTTP_204_NO_CONTENT
+                ).dict()
+                , status=status.HTTP_200_OK)  
+
+        def post(self, request : WSGIRequest , *args, **kwargs):
+            data = FormChangeDataUser(request.POST)
+
+            if data.is_valid():
+                claned = RegisterUserAcount.Base.BaseChangeDataUser(**data.cleaned_data)
+                
+                if len(_filter := HashUserApi.objects.filter(Hash = claned.hash_login , Ip = request.get_host())) > 0:
+
+                    return Response(
+                        Base.BaseResponseJson(
+                            massage="ok update password" , 
+                            data= {
+                                "username" : self.MultiUpdate(_filter , claned.password) , 
+                                "timestamp" : time() , 
+                            } ,
+                            status_code=status.HTTP_201_CREATED
+                        ).dict()
+                    , status=status.HTTP_200_OK) 
+                
+                return Response(
+                    Base.BaseResponseJson(
+                        massage="You do not have access rights" , 
+                        data= {
+                            "errors" : [
+                                "Block Ip or not Api"
+                            ]
+                        } , 
+                        status_code=status.HTTP_405_METHOD_NOT_ALLOWED
+                    ).dict()
+                    , status=status.HTTP_200_OK) 
+            
+            return Response(
+                Base.BaseResponseJson(
+                    massage="not update Hash" , 
+                    data= {
+                        "errors" : data.errors
+                    } , 
+                    status_code=status.HTTP_503_SERVICE_UNAVAILABLE
+                ).dict()
+                , status=status.HTTP_200_OK) 
+
+    class ChangeEmailUser(APIView):
+        def MultiUpdate(self , filter : list[HashUserApi] , email : str ):
+            def run(): 
+                User.objects.filter(username = filter[0].user.username).update(email = email)
+
+            Thread(target=run).start()
+
+            return filter[0].user.username 
+
+        def get(self, request : WSGIRequest , *args, **kwargs):
+            return Response(
+                Base.BaseResponseJson(
+                    massage="This route is only for testing with the post method" , 
+                    data= {
+                        "data" : list(FormChangeEmailUser.base_fields)
+                    } , 
+                    status_code=status.HTTP_204_NO_CONTENT
+                ).dict()
+                , status=status.HTTP_200_OK)  
+
+        def post(self, request : WSGIRequest , *args, **kwargs):
+            data = FormChangeEmailUser(request.POST)
+
+            if data.is_valid():
+                claned = RegisterUserAcount.Base.BaseChangeEmailUser(**data.cleaned_data)
+                
+                if len(_filter := HashUserApi.objects.filter(Hash = claned.hash_login , Ip = request.get_host())) > 0:
+
+                    return Response(
+                        Base.BaseResponseJson(
+                            massage="ok update password" , 
+                            data= {
+                                "username" : self.MultiUpdate(_filter , claned.email) , 
+                                "timestamp" : time() , 
+                            } ,
+                            status_code=status.HTTP_201_CREATED
+                        ).dict()
+                    , status=status.HTTP_200_OK) 
+                
+                return Response(
+                    Base.BaseResponseJson(
+                        massage="You do not have access rights" , 
+                        data= {
+                            "errors" : [
+                                "Block Ip or not Api"
+                            ]
+                        } , 
+                        status_code=status.HTTP_405_METHOD_NOT_ALLOWED
+                    ).dict()
+                    , status=status.HTTP_200_OK) 
+            
+            return Response(
+                Base.BaseResponseJson(
+                    massage="not update Hash" , 
+                    data= {
+                        "errors" : data.errors
+                    } , 
+                    status_code=status.HTTP_503_SERVICE_UNAVAILABLE
+                ).dict()
+                , status=status.HTTP_200_OK) 
+
+    class ChangeUsernameUser(APIView):
+        def MultiUpdate(self , filter : list[HashUserApi] , username : str ):
+            def run(): 
+                User.objects.filter(username = filter[0].user.username).update(username = username)
+
+            Thread(target=run).start()
+
+            return username
+
+        def get(self, request : WSGIRequest , *args, **kwargs):
+            return Response(
+                Base.BaseResponseJson(
+                    massage="This route is only for testing with the post method" , 
+                    data= {
+                        "data" : list(FormChangeUsernameUser.base_fields)
+                    } , 
+                    status_code=status.HTTP_204_NO_CONTENT
+                ).dict()
+                , status=status.HTTP_200_OK)  
+
+        def post(self, request : WSGIRequest , *args, **kwargs):
+            data = FormChangeUsernameUser(request.POST)
+
+            if data.is_valid():
+                claned = RegisterUserAcount.Base.BaseChangeUsernameUser(**data.cleaned_data)
+                
+                if len(_filter := HashUserApi.objects.filter(Hash = claned.hash_login , Ip = request.get_host())) > 0:
+
+                    return Response(
+                        Base.BaseResponseJson(
+                            massage="ok update password" , 
+                            data= {
+                                "username" : self.MultiUpdate(_filter , claned.username) , 
+                                "timestamp" : time() , 
+                            } ,
+                            status_code=status.HTTP_201_CREATED
+                        ).dict()
+                    , status=status.HTTP_200_OK) 
+                
+                return Response(
+                    Base.BaseResponseJson(
+                        massage="You do not have access rights" , 
+                        data= {
+                            "errors" : [
+                                "Block Ip or not Api"
+                            ]
+                        } , 
+                        status_code=status.HTTP_405_METHOD_NOT_ALLOWED
+                    ).dict()
+                    , status=status.HTTP_200_OK) 
+            
+            return Response(
+                Base.BaseResponseJson(
+                    massage="not update Hash" , 
+                    data= {
+                        "errors" : data.errors
+                    } , 
+                    status_code=status.HTTP_503_SERVICE_UNAVAILABLE
+                ).dict()
+                , status=status.HTTP_200_OK) 
+
+ 

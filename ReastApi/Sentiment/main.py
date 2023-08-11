@@ -1,19 +1,21 @@
-import logging , os
-import torch , pickle
+# Foreign library
 from typing import Any 
-import numpy as np
-from pydantic import BaseModel 
-from functools import lru_cache
-from torch.backends import cudnn 
-from torch import cuda , manual_seed 
-from .Datasets.analized import DataLoder 
-import pandas as pd
-from .Datasets.analized import ClanedText 
-from .Model.Model.BiLstm import SentimentModel 
 from json import loads
 from pathlib import Path
-import requests
 from bs4 import BeautifulSoup 
+from pydantic import BaseModel 
+from torch.backends import cudnn 
+from torch import cuda , manual_seed 
+import logging , os , torch , pickle , requests , pandas as pd , numpy as np 
+
+# Internal library
+from .Datasets.analized import DataLoder 
+from .Datasets.analized import ClanedText 
+from .Model.Model.BiLstm import SentimentModel 
+
+manual_seed(9999)
+cuda.manual_seed(9999)
+cudnn.deterministic = True
 
 class Setting:
     _addresEn = "HooshvareLab/bert-fa-base-uncased"
@@ -170,6 +172,12 @@ class RunTester:
             for data in self._loader.run( comments = comments ):
 
                 BaseData = RunTester.Model.BaseTokenizer(**data)
+
+                # from torchsummary import summary
+
+                # summary( controller.model , (3, 224, 224))
+
+                # print(controller.model)
 
                 predictions.extend(
                     torch.max(

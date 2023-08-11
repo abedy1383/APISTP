@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Reza Mahvashi">
+    <meta name="keywords" content="programming,blog,services,project">
+    <meta name="description" content="personal blog page">
+    <title>
+        STP
+    </title>
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/light.min.css"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/dark.min.css"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./../../../public/css/style.css">
+    <link rel="stylesheet" href="./../../../public//css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./../../../public//css/simple-lightbox.css">
+    <link rel="stylesheet" href="./../../../public//css/simple-lightbox.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <article class="container">
+        <section id="signup">
+            <div class="row signup-row justify-content-center align-items-center">
+                <div class="col-md-4 order-md-1 order-2">
+                    <form action="" method="post">
+                        <fieldset class="mt-4 form-floating">
+                            <input type="text" id="username" name="username" placeholder="username"
+                                class="form-control">
+                            <label for="username" class="form-label">نام کاربری</label>
+                        </fieldset>
+                        <fieldset class="mt-4 form-floating">
+                            <input type="email" id="email" name="email" placeholder="email" class="form-control">
+                            <label for="email" class="form-label">ایمیل</label>
+                        </fieldset>
+                        <fieldset class="mt-4 form-floating">
+                            <input type="tel" id="mobile" name="mobile" placeholder="mobile" class="form-control">
+                            <label for="mobile" class="form-label">موبایل</label>
+                        </fieldset>
+                        <fieldset class="mt-4 form-floating">
+                            <input type="password" id="password" name="password" placeholder="password"
+                                class="form-control">
+                            <label for="password" class="form-label">گذرواژه</label>
+                        </fieldset>
+                        <div class="d-grid mt-5 mb-md-0 mb-5">
+                            <button class="btn btn-dark" type="submit" name="send">ارسال</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-7 order-md-2 order-1">
+                    <video autoplay muted loop class="img-fluid card-img">
+                        <source src="../../../public/images/animate-home-elements.webm" type="video/webm">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/simple-lightbox.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var getNavbar = document.getElementById('page-navbar');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY === 0) {
+                getNavbar.classList.remove('shadow')
+            }
+            else {
+                getNavbar.classList.add('shadow')
+            }
+        })
+
+    </script>
+</body>
+
+</html>
