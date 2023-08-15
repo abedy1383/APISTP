@@ -1,0 +1,112 @@
+{% extends 'ReastFtp/Base/Base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Reza Mahvashi">
+    <meta name="keywords" content="programming,blog,services,project">
+    <meta name="description" content="personal blog page">
+    <title> STP </title>
+    <style> body::-webkit-scrollbar { display: none; } </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'ReastFtp/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <article class="container">
+        <section id="signup">
+            <div class="row signup-row justify-content-center align-items-center">
+                <div class="col-md-4 order-md-1 order-2">
+                    <div id="form-place"></div>
+                    <form onsubmit="submitForm(event)">
+                        <fieldset class="mt-4 form-floating">
+                            <input type="text" id="username" name="username" maxlength="255" placeholder="username"
+                                class="form-control">
+                            <label for="username" class="form-label">نام کاربری</label>
+                            <span class="text-danger error d-none"></span>
+                        </fieldset>
+                        <fieldset class="mt-4 form-floating">
+                            <input type="email" id="email" name="email" placeholder="email" class="form-control">
+                            <label for="email" class="form-label">ایمیل</label>
+                            <span class="text-danger error d-none"></span>
+                        </fieldset>
+                        <fieldset class="mt-4 form-floating">
+                            <input type="password" id="password" name="password" maxlength="20" placeholder="password"
+                                class="form-control">
+                            <label for="password" class="form-label">گذرواژه</label>
+                            <span class="text-danger error d-none"></span>
+                        </fieldset>
+                        <div class="d-grid mt-5 mb-md-0 mb-5">
+                            <button class="btn btn-dark" type="submit" id="send" name="send">ارسال</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-7 order-md-2 order-1">
+                    <video autoplay muted loop class="img-fluid card-img">
+                        <source src=" {% static 'ReastFtp/images/animate-home-elements.webm' %} " type="video/webm">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </article>
+{% endblock %}
+
+{% block script %}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src=" {% static 'ReastFtp/js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        var getForms = document.getElementsByClassName('form-control');
+        var getSend = document.getElementById('send');
+        var getError = document.getElementsByClassName('error');
+        function submitForm(e) {
+            // send data
+            if (getForms[0].value != "" && getForms[1].value != "" && getForms[2].value != "") {
+                var formData = {
+                    username: getForms[0].value,
+                    email: getForms[1].value,
+                    password: getForms[2].value,
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "{% url '' %}",
+                    data: formData,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) {
+                    if (!data.success) {
+                        if (data.errors.username) {
+                            getError[0].classList.remove('d-none');
+                            getError[0].innerHTML = data.errors.username;
+                        }
+
+                        if (data.errors.email) {
+                            getError[1].classList.remove('d-none');
+                            getError[1].innerHTML = data.errors.email;
+                        }
+
+                        if (data.errors.password) {
+                            getError[2].classList.remove('d-none');
+                            getError[2].innerHTML = data.errors.password;
+                        }
+                    } else {
+                        var alert = document.createElement('div');
+                        alert.innerHTML = `
+                            <p class="alert alert-success">
+                                ثبت نام با موقیت انجام شد !    
+                            </p>
+                         `
+                        document.getElementById('form-place').appendChild(alert);
+                    }
+                });
+            }
+
+            e.preventDefault();
+        }
+    </script>
+{% endblock %}

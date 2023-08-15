@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'rest_framework',
     'ReastApi',
+    'ReastFtp',
     'Security',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -139,4 +140,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     'DEFAULT_PERMISSION_CLASSES': (
 #         'rest_framework.permissions.DjangoModelPermissions',
 #     )
+# }
+
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.memcached.PyMemcacheCache",
+#         "LOCATION": "127.0.0.1:11211",
+#     }
 # }

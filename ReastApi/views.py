@@ -11,17 +11,12 @@ from cryptography.fernet import Fernet # Encryption of user keys
 from rest_framework.views import APIView   # create api viewer 
 from rest_framework.response import Response   # response data in clint 
 from django.core.handlers.wsgi import WSGIRequest # Base requets send clint 
-from django.shortcuts import render 
-
-# Internal library
-# from .Sentiment import main # nuralnetwork 
 from .models import (
     User , 
     Api , 
     HashUserApi , 
     Sentiment as Model_Sentiment
-) # models
- 
+) 
 from .forms import (
     CreateUserForm , 
     CreateApiForm , 
@@ -33,14 +28,12 @@ from .forms import (
     FormChangeDataUser , 
     FormChangeEmailUser , 
     FormChangeUsernameUser
-) # forms 
+) 
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 
-# run NuralNetwork
 # Nural_network = main.RunTester()
 Nural_network = None
-
-def views(request):
-    return render(request , 'ReastApi/home/index.html')
 
 # Base Data Requests -> Form -> Base
 class Base:
@@ -122,12 +115,20 @@ class UserCreate(APIView):
         Thread(target=run).start()
         return Hash
         
+    @method_decorator(cache_page(7200))
     def get(self, request : WSGIRequest , *args, **kwargs):
         return Response(
             Base.BaseResponseJson(
                 massage="This route is only for testing with the post method" , 
                 data= {
-                    "Inputs" : list(CreateUserForm.base_fields) , 
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in CreateUserForm.base_fields.items()] ,  
                 } , 
                 status_code=status.HTTP_204_NO_CONTENT
             ).dict()
@@ -185,17 +186,25 @@ class ApiCreate(APIView):
         Thread(target=run).start()
         return api
 
+    @method_decorator(cache_page(7200))
     def get(self, request : WSGIRequest , *args, **kwargs):
         return Response(
             Base.BaseResponseJson(
                 massage="This route is only for testing with the post method" , 
                 data= {
-                    "data" : list(CreateApiForm.base_fields)
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in CreateApiForm.base_fields.items()] ,  
                 } , 
                 status_code=status.HTTP_204_NO_CONTENT
             ).dict()
             , status=status.HTTP_200_OK)  
-
+    
     def post(self, request : WSGIRequest , *args, **kwargs):
         claned = CreateApiForm(request.POST)
 
@@ -270,12 +279,20 @@ class Sentiment(APIView):
         Thread(target=run).start()
         return code 
 
+    @method_decorator(cache_page(7200))
     def get(self, request : WSGIRequest , *args, **kwargs):
         return Response(
             Base.BaseResponseJson(
                 massage="This route is only for testing with the post method" , 
                 data= {
-                    "data" : list(CreateSentiment.base_fields)
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in CreateSentiment.base_fields.items()] ,  
                 } , 
                 status_code=status.HTTP_204_NO_CONTENT
             ).dict()
@@ -328,12 +345,20 @@ class Predict(APIView):
             _filter.delete()
         return Thread(target=run).start()
 
+    @method_decorator(cache_page(7200))
     def get(self, request : WSGIRequest , *args, **kwargs): 
         return Response(
             Base.BaseResponseJson(
                 massage="This route is only for testing with the post method" , 
                 data= {
-                    "data" : list(PredictSentimentText.base_fields)
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in PredictSentimentText.base_fields.items()] ,  
                 } , 
                 status_code=status.HTTP_204_NO_CONTENT
             ).dict()
@@ -403,17 +428,25 @@ class UpdateHashLogin(APIView):
         Thread(target=run).start()
         return Hash 
 
+    @method_decorator(cache_page(7200))
     def get(self, request : WSGIRequest , *args, **kwargs):
         return Response(
             Base.BaseResponseJson(
                 massage="This route is only for testing with the post method" , 
                 data= {
-                    "data" : list(FormUpdateHash.base_fields)
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in FormUpdateHash.base_fields.items()] ,  
                 } , 
                 status_code=status.HTTP_204_NO_CONTENT
             ).dict()
-            , status=status.HTTP_200_OK)  
-
+            , status=status.HTTP_200_OK) 
+    
     def post(self, request : WSGIRequest , *args, **kwargs):
         data = FormUpdateHash(request.POST)
 
@@ -473,17 +506,25 @@ class LoginUser(APIView):
         Thread(target=run).start()
         return Hash
         
+    @method_decorator(cache_page(7200))
     def get(self, request : WSGIRequest , *args, **kwargs):
         return Response(
             Base.BaseResponseJson(
                 massage="This route is only for testing with the post method" , 
                 data= {
-                    "data" : list(FormLoginUser.base_fields)
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in FormLoginUser.base_fields.items()] ,  
                 } , 
                 status_code=status.HTTP_204_NO_CONTENT
             ).dict()
-            , status=status.HTTP_200_OK)  
-
+            , status=status.HTTP_200_OK) 
+    
     def post(self, request : WSGIRequest , *args, **kwargs):
         data = FormLoginUser(request.POST)
 
@@ -566,16 +607,24 @@ class RegisterUserAcount:
 
             return filter[0].user.username 
 
+        @method_decorator(cache_page(7200))
         def get(self, request : WSGIRequest , *args, **kwargs):
             return Response(
-                Base.BaseResponseJson(
-                    massage="This route is only for testing with the post method" , 
-                    data= {
-                        "data" : list(FormChangeDataUser.base_fields)
-                    } , 
-                    status_code=status.HTTP_204_NO_CONTENT
-                ).dict()
-                , status=status.HTTP_200_OK)  
+            Base.BaseResponseJson(
+                massage="This route is only for testing with the post method" , 
+                data= {
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in FormChangeDataUser.base_fields.items()] ,  
+                } , 
+                status_code=status.HTTP_204_NO_CONTENT
+            ).dict()
+            , status=status.HTTP_200_OK) 
 
         def post(self, request : WSGIRequest , *args, **kwargs):
             data = FormChangeDataUser(request.POST)
@@ -627,17 +676,25 @@ class RegisterUserAcount:
 
             return filter[0].user.username 
 
+        @method_decorator(cache_page(7200))
         def get(self, request : WSGIRequest , *args, **kwargs):
             return Response(
-                Base.BaseResponseJson(
-                    massage="This route is only for testing with the post method" , 
-                    data= {
-                        "data" : list(FormChangeEmailUser.base_fields)
-                    } , 
-                    status_code=status.HTTP_204_NO_CONTENT
-                ).dict()
-                , status=status.HTTP_200_OK)  
-
+            Base.BaseResponseJson(
+                massage="This route is only for testing with the post method" , 
+                data= {
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in FormChangeEmailUser.base_fields.items()] ,  
+                } , 
+                status_code=status.HTTP_204_NO_CONTENT
+            ).dict()
+            , status=status.HTTP_200_OK) 
+        
         def post(self, request : WSGIRequest , *args, **kwargs):
             data = FormChangeEmailUser(request.POST)
 
@@ -688,17 +745,25 @@ class RegisterUserAcount:
 
             return username
 
+        @method_decorator(cache_page(7200))
         def get(self, request : WSGIRequest , *args, **kwargs):
             return Response(
-                Base.BaseResponseJson(
-                    massage="This route is only for testing with the post method" , 
-                    data= {
-                        "data" : list(FormChangeUsernameUser.base_fields)
-                    } , 
-                    status_code=status.HTTP_204_NO_CONTENT
-                ).dict()
-                , status=status.HTTP_200_OK)  
-
+            Base.BaseResponseJson(
+                massage="This route is only for testing with the post method" , 
+                data= {
+                    "validateor" : [
+                        {
+                            _key : {
+                                "max_length" : _item.max_length , 
+                                "required" : _item.required , 
+                                "type" : _item.__str__().split(".")[-1].split(" ")[0]
+                            }
+                        } for _key , _item in FormChangeUsernameUser.base_fields.items()] ,  
+                } , 
+                status_code=status.HTTP_204_NO_CONTENT
+            ).dict()
+            , status=status.HTTP_200_OK) 
+ 
         def post(self, request : WSGIRequest , *args, **kwargs):
             data = FormChangeUsernameUser(request.POST)
 
@@ -740,4 +805,3 @@ class RegisterUserAcount:
                 ).dict()
                 , status=status.HTTP_200_OK) 
 
- 

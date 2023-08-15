@@ -1,10 +1,10 @@
 from typing import Any
-from .DataBase import database , Model , Session 
+from .DataBase import database , Model , Session
 from threading import Thread , Lock
 from cryptography.fernet import Fernet
-from functools import lru_cache 
+from functools import lru_cache
 from django.core.handlers.wsgi import WSGIRequest
-from rest_framework.response import Response 
+from rest_framework.response import Response
 
 class ControllerHash:
     def __init__(self , 
@@ -43,8 +43,6 @@ class ControllerHash:
         try:
             return self._ListHash.pop(0) if len(self._ListHash) > 0 else self._OperatorHash() 
         finally:
-            # controller Thread
-            Thread(target=self._CreateHash).start()
             self._LocShowkHash.release() 
 
 class ControllerDataBase:
@@ -180,10 +178,11 @@ class ControllerDataIp:
             self._CreateNew = False 
             return self._hash 
         else:
+            self._ControllerHash._ListHash.append(self._hash)
             self._hash = self._ControllerHash.Hash 
             Thread(target=self._ControllerDataBase._UpdateCsrfToken , args=(self._ip , self._user_again , self._hash ,)).start()
             return self._hash 
-            
+      
     @property
     def Show_Dict(self):
         return {
@@ -296,4 +295,4 @@ class MiddlewareSecurityClint:
             return response  
         return self._ResponseBlock()
 
-
+# ست کردن زمان هش 

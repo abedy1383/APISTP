@@ -1,0 +1,569 @@
+{% extends 'ReastFtp/Base/Base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Reza Mahvashi">
+    <meta name="keywords" content="programming,blog,services,project">
+    <meta name="description" content="personal blog page">
+    <title> STP </title>
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/light.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/themes/dark.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'ReastFtp/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'ReastFtp/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ReastFtp/css/simple-lightbox.css' %}">
+    <link rel="stylesheet" href="{% static 'ReastFtp/css/simple-lightbox.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <header id="navbar" class="position-relative">
+        <nav id="page-navbar" class="navbar bg-white navbar-expand-md position-fixed w-100 py-2 top-0">
+            <section class="container">
+                <a href="#" class="navbar-brand">
+                    <img src=" {% static 'ReastFtp/images/logo.png' %} " alt="logo" class="img-fluid logo">
+                </a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
+                    <i class="navbar-toggler-icon"></i>
+                </button>
+                <section class="collapse navbar-collapse align-items-center mt-md-0 mt-3" id="navbar-collapse">
+                    <ul class="nav navbar-nav ">
+                        <li class="nav-item fw-bold fs-6 me-md-0 ms-1">
+                            <a href="#" class="nav-link text-dark">خانه</a>
+                        </li>
+                        <li class="nav-item fw-bold fs-6 me-md-3 ms-1" data-bs-toggle="modal"
+                            data-bs-target="#info-modal">
+                            <a href="#" class="nav-link text-dark">درباره</a>
+                        </li>
+                        <li class="nav-item d-md-none d-md-inline-block">
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-dark ms-3">ورود</button>
+                                <button class="btn btn-outline-dark">ثبت نام</button>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <div class="d-md-flex d-none justify-content-end">
+                    <button class="btn btn-dark ms-3"><a href="#" id="signin-a">ورود</a></button>
+                    <button class="btn btn-outline-dark">
+                        <a href="#" id="signup-a">ثبت نام</a>
+                    </button>
+                </div>
+            </section>
+        </nav>
+    </header>
+    <article class="container">
+        <section id="modal">
+            <!-- this is modal for user when he clicked on about li -->
+            <div class="modal fade" id="info-modal">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header d-flex justify-content-between">
+                            <h6 class="modal-title w-100">درباره</h6>
+                            <button class="btn-close btn-sm" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card shadow">
+                                <div class="row align-items-center">
+                                    <div class="col-12">
+                                        <div class="accordion" id="accordion">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#accordian-collapse-first">
+                                                        برنامه نویسان
+                                                    </button>
+                                                </h2>
+                                                <div id="accordian-collapse-first" class="accordion-collapse collapse">
+                                                    <div class="accordion-body">
+                                                        <div class="card border-0">
+                                                            <div class="card-body px-md-3 px-1">
+                                                                <!-- abolfazl -->
+                                                                <div class="accordion shadow" id="accordion">
+                                                                    <div class="accordion-item">
+                                                                        <h2 class="accordion-header">
+                                                                            <button class="accordion-button collapsed"
+                                                                                type="button" data-bs-toggle="collapse"
+                                                                                data-bs-target="#accordian-collapse">
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <div class="profile-img"
+                                                                                        style="background-image: {% static 'ReastFtp/images/owp-freelance-img-008.jpg' %};">
+                                                                                    </div>
+                                                                                    <p class="ms-3 accordion-text">
+                                                                                        ابوالفضل عابدی</p>
+                                                                                </div>
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="accordian-collapse"
+                                                                            class="accordion-collapse collapse">
+                                                                            <div class="accordion-body">
+                                                                                <div class="card border-0">
+                                                                                    <div class="card-body">
+                                                                                        <p class="h5 fw-bold">ابوالفضل
+                                                                                            عابدی</p>
+                                                                                        <p class="card-text mt-3">
+                                                                                            لورم ایپسوم متن ساختگی با
+                                                                                            تولید سادگی نامفهوم از
+                                                                                            صنعت
+                                                                                            چاپ و با استفاده از طراحان
+                                                                                            گرافیک است چاپگرها و متون
+                                                                                            بلکه روزنامه و مجله در ستون
+                                                                                            و سطرآنچنان که لازم است
+                                                                                            و
+                                                                                            برای شرایط فعلی تکنولوژی
+                                                                                            مورد نیاز و کاربردهای متنوع
+                                                                                            با
+                                                                                            هدف بهبود ابزارهای کاربردی
+                                                                                            می باشد کتابهای زیادی در
+                                                                                            شصت
+                                                                                            و سه درصد گذشته حال و آینده
+                                                                                            شناخت فراوان جامعه و
+                                                                                            متخصصان
+                                                                                            را می طلبد
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- reza -->
+                                                                <div class="accordion shadow mt-4" id="accordion">
+                                                                    <div class="accordion-item">
+                                                                        <h2 class="accordion-header">
+                                                                            <button class="accordion-button collapsed"
+                                                                                type="button" data-bs-toggle="collapse"
+                                                                                data-bs-target="#accordian-collapse-second">
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <div class="profile-img"
+                                                                                        style="background-image: {% static 'ReastFtp/images/owp-freelance-img-008.jpg' %};">
+                                                                                    </div>
+                                                                                    <p class="ms-3 accordion-text">رضا
+                                                                                        مهوشی</p>
+                                                                                </div>
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="accordian-collapse-second"
+                                                                            class="accordion-collapse collapse">
+                                                                            <div class="accordion-body">
+                                                                                <div class="card border-0">
+                                                                                    <div class="card-body">
+                                                                                        <div class="texts">
+                                                                                            <p
+                                                                                                class="h5 fw-bold card-title">
+                                                                                                رضا مهوشی</p>
+                                                                                            <p
+                                                                                                class="card-subtitle blockquote-footer mt-3">
+                                                                                                Front End Developer
+                                                                                            <p class="card-text mt-2">
+                                                                                                یک برنامه نویس روانشناسی
+                                                                                                که
+                                                                                                علاقه زیادی به کار تیمی
+                                                                                                و
+                                                                                                همچنین روحیه دادن به هم
+                                                                                                تیمی هاش داره !
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="programmer-ability mt-5">
+                                                                                            <p class="h6 fw-bold">
+                                                                                                توانایی ها
+                                                                                            </p>
+                                                                                            <div class="row">
+                                                                                                <div
+                                                                                                    class="col-md-3 col-6">
+                                                                                                    <ul
+                                                                                                        class="list-group p-0">
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            HTML
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            CSS
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            BOOTSTRAP
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col-md-3 col-6">
+                                                                                                    <ul
+                                                                                                        class="list-group p-0">
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            JAVASCRIPT
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            VUE.JS
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            REACT.JS
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col-md-3 col-6">
+                                                                                                    <ul
+                                                                                                        class="list-group p-0">
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            PHP
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            LARAVEL
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            RESTAPI
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="col-md-3 col-6">
+                                                                                                    <ul
+                                                                                                        class="list-group p-0">
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            AXIOS
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            AJAX
+                                                                                                        </li>
+                                                                                                        <li
+                                                                                                            class="list-group-item">
+                                                                                                            GIT
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </section>
+        <section id="home">
+            <section id="first-card" class="mt-md-0 mt-5">
+                <div class="card mt-md-0 mt-5 border-0">
+                    <div class="row align-items-center mt-md-0 mt-5">
+                        <div class="col-md-6 first-card-animate order-md-1 order-2">
+                            <div class="card-body">
+                                <div class="texts">
+                                    <h4 class="card-title fw-bold">تست 1</h4>
+                                    <h6 class="card-subtitle text-muted blockquote-footer mt-3">ابوالفضل عابدینی</h6>
+                                    <p class="card-text mt-3">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                        گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
+                                        برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
+                                        کاربردی می باشد
+                                    </p>
+                                </div>
+                                <div class="btns d-flex mt-3">
+                                    <button class="btn btn-outline-dark ms-3">خدمات</button>
+                                    <button class="btn btn-dark">ارتباط</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 order-md-2 order-1">
+                            <img src=" {% static 'ReastFtp/images/isometric-computer.avif' %} " alt="info"
+                                class="card-img first-card-img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mt-5 mb-5" id="ability">
+                <div class="row">
+                    <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="card border-0 rounded-4 shadow">
+                            <div class="card-body ">
+                                <div class="icon-ability text-center">
+                                    <img src="{% static 'ReastFtp/images/icon1.png' %}" alt="clock" class="img-fluid power-img">
+                                </div>
+                                <div class="texts">
+                                    <p class="h5 fw-bold mt-3">تست 1</p>
+                                    <p class="card-text mt-3">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                        گرافیک است
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-md-0 mt-3" data-aos="fade-up" data-aos-duration="2000">
+                        <div class="card border-0 rounded-4 shadow">
+                            <div class="card-body">
+                                <div class="icon-ability text-center">
+                                    <img src="{% static 'ReastFtp/images/icon2.png' %}" alt="clock" class="img-fluid power-img">
+                                </div>
+                                <div class="texts">
+                                    <p class="h5 fw-bold mt-3">تست 2</p>
+                                    <p class="card-text mt-3">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                        گرافیک است
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-md-0 mt-3" data-aos="fade-up" data-aos-duration="3000">
+                        <div class="card border-0 rounded-4 shadow">
+                            <div class="card-body">
+                                <div class="icon-ability text-center">
+                                    <img src="{% static 'ReastFtp/images/icon3.png' %}" alt="clock" class="img-fluid power-img">
+                                </div>
+                                <div class="texts">
+                                    <p class="h5 fw-bold mt-3">تست 3</p>
+                                    <p class="card-text mt-3">
+                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                        گرافیک است
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-5" id="seccond-card">
+                <div class="card border-0">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="card-video">
+                                <video class="card-img img-fluid" autoplay muted loop preload="auto">
+                                    <source src="{% static 'ReastFtp/images/animate-robot.webm' %}" type="video/webm">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-duration="3000">
+                            <div class="card-body">
+                                <div class="text">
+                                    <div class="texts">
+                                        <h4 class="card-title fw-bold">
+                                            عنوان <span class="text-primary fs-3">تست</span> 2.
+                                        </h4>
+                                        <p class="card-text mt-3">
+                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+                                            طراحان
+                                            گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                                            است و
+                                            برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
+                                            کاربردی می باشد
+                                        </p>
+                                    </div>
+                                    <div class="btns d-flex mt-3">
+                                        <button class="btn btn-dark ms-3">اطلاعات بیشتر</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-5" id="banner">
+                <div class="row banner-row justify-content-center align-items-center">
+                    <div class="col-md-7">
+                        <div class="carousel slide" data-bs-ride="caousel" id="page-carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#page-carousel" data-bs-slide-to="0"
+                                    class="active rounded-circle">
+                                </button>
+                                <button type="button" data-bs-target="#page-carousel" data-bs-slide-to="1"
+                                    class="rounded-circle"></button>
+                                <button type="button" data-bs-target="#page-carousel" data-bs-slide-to="2"
+                                    class="rounded-circle"></button>
+                            </div>
+                            <div class="carousel-inner px-5">
+                                <div class="carousel-item active">
+                                    <div class="row justify-content-center text-center">
+                                        <div class="col-md-9">
+                                            <div class="card border-0">
+                                                <div class="card-body text-center">
+                                                    <p class="card-text fs-5 fw-bold">
+                                                        <q>
+                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                                                            با استفاده از طراحان
+                                                            گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                                            سطرآنچنان که لازم است و
+                                                            برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
+                                                            بهبود ابزارهای
+                                                            کاربردی می باشد
+                                                        </q>
+                                                    </p>
+                                                    <p class="card-text blockquote-footer text-white mt-3 mb-5">
+                                                        ابوالفضل عابدینی
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row justify-content-center text-center">
+                                        <div class="col-md-9">
+                                            <div class="card border-0">
+                                                <div class="card-body text-center">
+                                                    <p class="card-text fs-5 fw-bold">
+                                                        <q>
+                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                                                            با استفاده از طراحان
+                                                            گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                                            سطرآنچنان که لازم است و
+                                                            برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
+                                                            بهبود ابزارهای
+                                                            کاربردی می باشد
+                                                        </q>
+                                                    </p>
+                                                    <p class="card-text blockquote-footer text-white mt-3 mb-5">
+                                                        ابوالفضل عابدینی
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row justify-content-center text-center">
+                                        <div class="col-md-9">
+                                            <div class="card border-0">
+                                                <div class="card-body text-center">
+                                                    <p class="card-text fs-5 fw-bold">
+                                                        <q>
+                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                                                            با استفاده از طراحان
+                                                            گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
+                                                            سطرآنچنان که لازم است و
+                                                            برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
+                                                            بهبود ابزارهای
+                                                            کاربردی می باشد
+                                                        </q>
+                                                    </p>
+                                                    <p class="card-text blockquote-footer text-white mt-3 mb-5">
+                                                        ابوالفضل عابدینی
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+        </section>
+    </article>
+    <footer class="mt-5 mb-5">
+        <section id="footer" class="container shadow">
+            <div class="row align-items-center py-5">
+                <div class="col-md-4 px-md-5 px-3">
+                    <div class="description">
+                        <img src="{% static 'ReastFtp/images/logo.png' %}" alt="logo" class="img-fluid logo">
+                        <p class="mt-4 mb-4">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="h5 fw-bold">ایمیل:</p>
+                            <p class="mt-1">info@example.com</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="h5 fw-bold">شماره:</p>
+                            <p class="mt-1">+1 234 560 78 90</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 mt-md-0 mt-3 px-3">
+                    <div class="row">
+                        <div class="col-md-4 col-6">
+                            <ul class="list-group p-md-2 p-0">
+                                <p class="h5 fw-bold">لینک های مفید</p>
+                                <li class="list-group-item p-0 border-0"><span>خانه</span></li>
+                                <li class="list-group-item p-0 border-0"><span>درباره</span></li>
+                                <li class="list-group-item p-0 border-0"><span>خدمات</span></li>
+                                <li class="list-group-item p-0 border-0"><span>پروژه ها</span></li>
+                                <li class="list-group-item p-0 border-0"><span>وبلاگ</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 d-md-inline-block d-none">
+                            <ul class="list-group p-md-2 p-0">
+                                <p class="h5 fw-bold">پست های اخیر</p>
+                                <li class="list-group-item p-0 border-0"><span>لینک 1</span></li>
+                                <li class="list-group-item p-0 border-0"><span>لینک 2</span></li>
+                                <li class="list-group-item p-0 border-0"><span>لینک 3</span></li>
+                                <li class="list-group-item p-0 border-0"><span>لینک 4</span></li>
+                                <li class="list-group-item p-0 border-0"><span>لینک 5</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-6">
+                            <ul class="list-group p-md-2 p-0">
+                                <p class="h5 fw-bold">شبکات اجتماعی</p>
+                                <li class="list-group-item p-0 border-0"><span>فیسبوک</span></li>
+                                <li class="list-group-item p-0 border-0"><span>توییتر</span></li>
+                                <li class="list-group-item p-0 border-0"><span>گیت هاب</span></li>
+                                <li class="list-group-item p-0 border-0"><span>پینترست</span></li>
+                                <li class="list-group-item p-0 border-0"><span>اینستاگرام</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+{% endblock %}
+
+{% block script %}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <script src=" {% static 'ReastFtp/js/owl.carousel.min.js' %}"></script>
+    <script src=" {% static 'ReastFtp/js/simple-lightbox.min.js' %}"></script>
+    <script src=" {% static 'ReastFtp/js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar/build/vanilla-calendar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        var getNavbar = document.getElementById('page-navbar');
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY === 0) {
+                getNavbar.classList.remove('shadow')
+            }
+            else {
+                getNavbar.classList.add('shadow')
+            }
+        })
+
+    </script>
+{% endblock %}

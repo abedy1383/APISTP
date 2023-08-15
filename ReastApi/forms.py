@@ -1,5 +1,5 @@
 from django import forms 
-from .models import User , Sentiment
+from .models import User 
 
 class CreateUserForm(forms.ModelForm):
     class Meta:
