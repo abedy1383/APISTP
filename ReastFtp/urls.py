@@ -5,9 +5,10 @@ from .views import (
     ShowSignIn 
 )
 
-urlpatterns = [
-    path('' , ShowHome.as_view()) , 
-    path('signin/' , ShowSignIn.as_view()) , 
-    path('signup/' , ShowSignUp.as_view()) , 
+app_name = "UrlReastFtp"
 
+urlpatterns = [
+    path('' , ShowHome.as_view() , name="Home") , 
+    path('signin/' , ShowSignIn.as_view() , name="SignIn") , 
+    path('signup/' , ShowSignUp.as_view() , name="SignUp") ,  
 ]

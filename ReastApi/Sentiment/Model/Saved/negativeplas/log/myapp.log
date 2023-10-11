@@ -258,3 +258,9 @@ IndexError: list index out of range
 2023-08-08 18:34:07,104 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/vocab.txt HTTP/1.1" 200 0
 2023-08-08 18:36:30,572 WARNING django.request Not Found: /login/user/api/
 2023-08-08 18:38:03,169 WARNING django.request Not Found: /favicon.ico
+2023-09-03 00:21:00,404 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negativeplas/Setting
+2023-09-03 00:21:00,419 DEBUG urllib3.connectionpool Starting new HTTPS connection (3): huggingface.co:443
+2023-09-03 00:21:00,435 DEBUG urllib3.connectionpool Starting new HTTPS connection (4): huggingface.co:443
+2023-09-03 00:21:11,193 DEBUG urllib3.connectionpool Starting new HTTPS connection (5): huggingface.co:443
+2023-09-03 00:21:25,770 WARNING django.request Not Found: /favicon.ico
+2023-09-03 00:24:25,332 WARNING django.request Not Found: /api/create/sentiment/api/

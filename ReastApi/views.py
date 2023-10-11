@@ -31,9 +31,51 @@ from .forms import (
 ) 
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
+from .Sentiment import main
+from threading import Thread , Lock
 
-# Nural_network = main.RunTester()
-Nural_network = None
+Nural_network = main.Tester()
+
+class ControllerHash:
+    def __init__(self , 
+        max_Thread : int = 500
+    ) -> None:
+        (
+            self._LocShowkHash , 
+            self._ListHash , 
+            self.Max_Thread
+        ) = (
+            Lock() , 
+            [] , 
+            max_Thread 
+        )
+
+    def _registerHash(self):
+        return Fernet.generate_key().decode()
+
+    def _CreateHash(self):
+        self._ListHash.append(self._registerHash())
+ 
+    def __call__(self) -> Any:
+        Thread(target=self._run).start()
+
+    def _run(self):
+        for _ in range(self.Max_Thread):
+            self._CreateHash() 
+
+    def _OperatorHash(self):
+        Thread(target=self._CreateHash).start()
+        return self._registerHash() 
+
+    @property
+    def Hash(self):
+        self._LocShowkHash.acquire()
+        try:
+            return self._ListHash.pop(0) if len(self._ListHash) > 0 else self._OperatorHash() 
+        finally:
+            self._LocShowkHash.release() 
+
+Controller_Hash = ControllerHash()
 
 # Base Data Requests -> Form -> Base
 class Base:
@@ -133,6 +175,7 @@ class UserCreate(APIView):
                 status_code=status.HTTP_204_NO_CONTENT
             ).dict()
             , status=status.HTTP_200_OK)  
+
 
     def post(self, request : WSGIRequest , *args, **kwargs):
             print(request.headers.get('User-Agent'))
@@ -267,11 +310,11 @@ class Sentiment(APIView):
         return Thread(target=run).start()
     
     def MultiCreated(self , text , api ):
-        code = hashlib.sha256(f"{time()}".encode('UTF-8')).hexdigest()
+        code = Fernet.generate_key().decode()
         def run():
             Model_Sentiment(
                 text = text , 
-                sentiment = Nural_network.predict_one(text), 
+                sentiment = Nural_network.predict(text), 
                 code = code ,
                 api = api, 
             ).save()

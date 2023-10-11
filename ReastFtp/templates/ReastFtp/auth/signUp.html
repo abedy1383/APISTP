@@ -17,12 +17,12 @@
 {% endblock %}
 
 {% block body %}
-    <article class="container">
+    <article class="container">         
         <section id="signup">
             <div class="row signup-row justify-content-center align-items-center">
                 <div class="col-md-4 order-md-1 order-2">
                     <div id="form-place"></div>
-                    <form onsubmit="submitForm(event)">
+                    <form onsubmit="submitForm()">
                         <fieldset class="mt-4 form-floating">
                             <input type="text" id="username" name="username" maxlength="255" placeholder="username"
                                 class="form-control">
@@ -65,6 +65,7 @@
         var getSend = document.getElementById('send');
         var getError = document.getElementsByClassName('error');
         function submitForm(e) {
+            e.preventDefault();
             // send data
             if (getForms[0].value != "" && getForms[1].value != "" && getForms[2].value != "") {
                 var formData = {
@@ -74,7 +75,7 @@
                 }
                 $.ajax({
                     type: "POST",
-                    url: "{% url '' %}",
+                    url: "{% url 'UrlRestApi:LoginUser' %}",
                     data: formData,
                     dataType: "json",
                     encode: true,
@@ -106,7 +107,7 @@
                 });
             }
 
-            e.preventDefault();
+            
         }
     </script>
 {% endblock %}

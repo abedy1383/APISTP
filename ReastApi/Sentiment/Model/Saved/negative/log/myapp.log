@@ -57599,3 +57599,6 @@
 2023-08-08 18:33:47,142 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
 2023-08-08 18:33:47,769 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
 2023-08-08 18:33:48,031 DEBUG urllib3.connectionpool https://huggingface.co:443 "HEAD /HooshvareLab/bert-fa-base-uncased/resolve/main/config.json HTTP/1.1" 200 0
+2023-09-03 00:20:51,362 DEBUG root show setting addres : C:\Users\HadafRayane\Desktop\api\ApiSentiment\ReastApi\Sentiment\Model\Saved/negative/Setting
+2023-09-03 00:20:51,378 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): huggingface.co:443
+2023-09-03 00:20:51,409 DEBUG urllib3.connectionpool Starting new HTTPS connection (2): huggingface.co:443
